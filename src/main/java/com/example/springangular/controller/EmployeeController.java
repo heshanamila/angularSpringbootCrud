@@ -15,14 +15,18 @@ public class EmployeeController {
     @Autowired
     private EmployeeRepository employeeRepository;
 
+
     @GetMapping("/employees")
     public List<Employee> getAllEmployees(){
         return employeeRepository.findAll();
     }
+
+
     @PostMapping("/employees")
     public Employee createEmployee(@RequestBody Employee employee){
         return employeeRepository.save(employee);
     }
+
 
     @GetMapping("/employees/{id}")
     public ResponseEntity<Employee> getEmployeeById(@PathVariable Long id) {
